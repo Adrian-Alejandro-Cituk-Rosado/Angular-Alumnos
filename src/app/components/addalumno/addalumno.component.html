@@ -1,0 +1,41 @@
+<div class="card p-2 shadow-sm mb-2">
+  <h3 class="mb-3">Formulario de Alumno</h3>
+  <form (ngSubmit)="emitAlumno()">
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input type="text" id="nombre" class="form-control" [(ngModel)]="alumno.nombre" name="nombre" required />
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="apellido" class="form-label">Apellido</label>
+        <input type="text" id="apellido" class="form-control" [(ngModel)]="alumno.apellido" name="apellido" required  />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3 mb-3">
+        <label for="submodulo1" class="form-label">Submódulo 1</label>
+        <input type="number" id="submodulo1" class="form-control" [(ngModel)]="alumno.submodulo1" name="submodulo1" min="0" max="10" required oninput="if(this.value < 0) this.value = 0; if(this.value > 10) this.value = 10;" />
+      </div>
+      <div class="col-md-3 mb-3">
+        <label for="submodulo2" class="form-label">Submódulo 2</label>
+        <input type="number" id="submodulo2" class="form-control" [(ngModel)]="alumno.submodulo2" name="submodulo2" min="0" max="10" required oninput="if(this.value < 0) this.value = 0; if(this.value > 10) this.value = 10;" />
+      </div>
+      <div class="col-md-3 mb-3">
+        <label for="calculo" class="form-label">Cálculo</label>
+        <input type="number" id="calculo" class="form-control" [(ngModel)]="alumno.calculo" name="calculo" min="0" max="10" required oninput="if(this.value < 0) this.value = 0; if(this.value > 10) this.value = 10;" />
+      </div>
+      <div class="col-md-3 mb-3">
+        <label for="fisica" class="form-label">Física</label>
+        <input type="number" id="fisica" class="form-control" [(ngModel)]="alumno.fisica" name="fisica" min="0" max="10" required oninput="if(this.value < 0) this.value = 0; if(this.value > 10) this.value = 10;" />
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="foto" class="form-label">Selecciona una imagen</label>
+      <input type="file" id="foto" class="form-control" (change)="onFileSelected($event)" accept="image/*" required/>
+    </div>
+
+    <button type="submit" class="btn btn-primary w-100">Añadir Alumno</button>
+  </form>
+</div>
